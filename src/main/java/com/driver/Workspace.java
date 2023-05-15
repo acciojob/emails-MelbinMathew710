@@ -52,7 +52,7 @@ public class Workspace extends Gmail{
         LocalTime e = m[0].getEndTime() ;
         LocalTime s = m[1].getStartTime() ;
 
-        for(int i=0; i<(m.length)-1; i++){
+        for(int i=1; i<(m.length)-1; i++){
 
             int val =  s.compareTo(e) ;
             if(val>0) {
