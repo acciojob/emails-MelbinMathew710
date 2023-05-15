@@ -15,6 +15,5 @@ public class SortByEndTime implements Comparator<Meeting> {
             else if (val1<0) return -1 ;
             return 0 ;
         }
-
     }
 }

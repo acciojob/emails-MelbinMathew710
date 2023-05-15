@@ -8,10 +8,10 @@ public class Meeting {
     private LocalTime endTime;
 
     public LocalTime getStartTime() {
-        return startTime;
+        return this.startTime;
     }
     public LocalTime getEndTime() {
-        return endTime;
+        return this.endTime;
     }
 
     public Meeting(LocalTime startTime, LocalTime endTime){
