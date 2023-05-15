@@ -48,7 +48,7 @@ public class Workspace extends Gmail{
 
         Arrays.sort(m, new SortByEndTime()) ;
 
-        int count = 0 ;
+        int count = 1 ;
         LocalTime e = m[0].getEndTime() ;
         LocalTime s = m[1].getStartTime() ;
 
