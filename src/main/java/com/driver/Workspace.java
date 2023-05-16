@@ -6,6 +6,7 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 
 public class Workspace extends Gmail{
 
@@ -51,24 +52,40 @@ public class Workspace extends Gmail{
 
         Arrays.sort(m, new SortByEndTime()) ;
 
-        int count = 2 ;
-        LocalTime e = m[0].getEndTime() ;
-        LocalTime s = m[1].getStartTime() ;
+        List<Meeting> maxMeeting = new ArrayList<>() ;
+        LocalTime time_limit = m[0].getEndTime() ;
+        maxMeeting.add(m[0]) ;
 
-        for(int i=1; i<(m.length)-1; i++){
-
-            int val =  s.compareTo(e) ;
-            if(val>0) {
-                count += 1;
-                s = m[i+1].getStartTime() ;
-                e = m[i].getEndTime() ;
-            }else{
-                s = m[i+1].getStartTime() ;
+        for(Meeting m1 : m){
+            if (m1.getStartTime().isAfter(time_limit)) {
+//            if(m1.getStartTime().compareTo(time_limit)>0){
+                maxMeeting.add(m1) ;
+                time_limit = m1.getEndTime() ;
             }
-
         }
+        return maxMeeting.size() ;
 
-        return count ;
+
+
+//        int count = 1 ;
+
+//        LocalTime e = m[0].getEndTime() ;
+//        LocalTime s = m[1].getStartTime() ;
+
+//        for(int i=1; i<(m.length)-1; i++){
+//
+//            int val =  s.compareTo(e) ;
+//            if(val>0) {
+//                count += 1;
+//                s = m[i+1].getStartTime() ;
+//                e = m[i].getEndTime() ;
+//            }else{
+//                s = m[i+1].getStartTime() ;
+//            }
+//
+//        }
+
+//        return count ;
 
     }
 }
