@@ -36,10 +36,10 @@ public class Gmail extends Email {
         if(!Inbox.isEmpty() && Inbox.size() == inboxCapacity){
             Trash.add( Inbox.remove(0) ) ;
         }
-        else{
+//        else{
             Mail m = new Mail(date,sender,message) ;
             Inbox.add(m) ;
-        }
+//        }
 
     }
 
