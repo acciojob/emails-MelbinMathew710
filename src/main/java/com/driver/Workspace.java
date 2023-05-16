@@ -12,19 +12,19 @@ public class Workspace extends Gmail{
 
     private ArrayList<Meeting> calendar = new ArrayList<>(); // Stores all the meetings
 
+    public Workspace(String emailId) {
+        super(emailId, Integer.MAX_VALUE);
+        // The inboxCapacity is equal to the maximum value an integer can store.
+//        super.setEmailId(emailId);
+//        super.inboxCapacity = Integer.MAX_VALUE ;s
+    }
+
     public void setCalender(Meeting meeting){
         calendar.add( meeting ) ;
     }
 
     public ArrayList<Meeting> getCalendar() {
         return calendar;
-    }
-
-    public Workspace(String emailId) {
-        super(emailId, Integer.MAX_VALUE);
-        // The inboxCapacity is equal to the maximum value an integer can store.
-//        super.setEmailId(emailId);
-//        super.inboxCapacity = Integer.MAX_VALUE ;s
     }
 
     public void addMeeting(Meeting meeting) {
@@ -47,7 +47,7 @@ public class Workspace extends Gmail{
         for(Meeting i : getCalendar() ){
 
             m[j] = i ;
-            j++ ;
+            j += 1 ;
         }
 
         Arrays.sort(m, new SortByEndTime()) ;
